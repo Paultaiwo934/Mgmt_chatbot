@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professor's Chatbot</title>
+</head>
+<body>
+    <h1>Professor Upson's Chatbot</h1>
+    <textarea id="question" placeholder="Type your question here..." rows="4" cols="50"></textarea>
+    <br>
+    <button onclick="askChatbot()">Ask</button>
+    <h2>Response:</h2>
+    <p id="response"></p>
+
+    <script>
+        async function askChatbot() {
+            let question = document.getElementById("question").value;
+            let responseElement = document.getElementById("response");
+
+            // Send the question to Flask backend
+            let response = await fetch("http://127.0.0.1:5000/ask", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ question: question })
+            });
+
+            let data = await response.json();
+            responseElement.innerText = data.answer || "Error getting response.";
+        }
+    </script>
+</body>
+</html>
