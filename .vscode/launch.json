@@ -10,7 +10,8 @@
             "type": "chrome",
             "request": "launch",
             "name": "Open index.html",
-            "file": "/Users/mac/Desktop/Projects/VS Code/Chatbot Tutorial/Upson/index.html"
+            // "file": "/Users/mac/Desktop/Projects/VS Code/Chatbot Tutorial/Upson/index.html"
+            "file": "/Users/mac/Desktop/Projects/VS Code/Chatbot Tutorial/index.html"
         }
     ]
 }
