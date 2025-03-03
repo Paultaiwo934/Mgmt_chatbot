@@ -7,71 +7,86 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: linear-gradient(135deg, #007bff, #00d4ff);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            margin: 0;
+            background: linear-gradient(to right, #2193b0, #6dd5ed);
+            text-align: center;
+            padding: 50px;
+            color: white;
         }
         .chat-container {
+            max-width: 500px;
+            margin: auto;
             background: white;
-            width: 400px;
-            border-radius: 15px;
             padding: 20px;
-            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
-            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: left;
         }
         h1 {
-            font-size: 20px;
             color: #333;
+            text-align: center;
         }
         textarea {
             width: 100%;
-            height: 100px;
+            padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
-            padding: 10px;
-            font-size: 14px;
             resize: none;
+            font-size: 16px;
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
         }
         button {
-            background: #007bff;
-            color: white;
             border: none;
-            padding: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
             border-radius: 5px;
             cursor: pointer;
-            width: 100%;
-            margin-top: 10px;
-            font-size: 16px;
         }
-        button:hover {
-            background: #0056b3;
+        .ask-btn {
+            background-color: #e74c3c;
+            color: white;
         }
-        #response {
+        .clear-btn {
+            background-color: #3498db;
+            color: white;
+        }
+        .response-container {
             margin-top: 20px;
-            font-size: 16px;
-            color: #333;
-            background: #f1f1f1;
             padding: 10px;
             border-radius: 5px;
+            background: #f1f1f1;
+            color: black;
+            font-size: 16px;
+            min-height: 50px;
         }
     </style>
 </head>
 <body>
     <div class="chat-container">
-        <h1>Professor Upson's AI Assistant</h1>
-        <textarea id="question" placeholder="Type your question here..."></textarea>
-        <button onclick="askChatbot()">Ask</button>
-        <div id="response"></div>
+        <h1>Professor Upson's Chatbot</h1>
+        <textarea id="question" placeholder="Type your question here..." rows="4"></textarea>
+        <div class="button-container">
+            <button class="ask-btn" onclick="askChatbot()">Ask</button>
+            <button class="clear-btn" onclick="clearChat()">Clear Chat</button>
+        </div>
+        <div class="response-container">
+            <strong>Response:</strong>
+            <p id="response"></p>
+        </div>
     </div>
-    
+
     <script>
         async function askChatbot() {
             let question = document.getElementById("question").value;
             let responseElement = document.getElementById("response");
-            responseElement.innerText = "Thinking...";
+
+            if (!question.trim()) {
+                responseElement.innerText = "Please enter a question.";
+                return;
+            }
 
             let response = await fetch("https://mgmt-chatbot.onrender.com/ask", {
                 method: "POST",
@@ -81,6 +96,11 @@
 
             let data = await response.json();
             responseElement.innerText = data.answer || "Error getting response.";
+        }
+
+        function clearChat() {
+            document.getElementById("question").value = "";
+            document.getElementById("response").innerText = "";
         }
     </script>
 </body>
