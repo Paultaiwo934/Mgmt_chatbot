@@ -17,8 +17,14 @@ if not openai_api_key:
 openai_client = openai.OpenAI(api_key="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")
 
 # Load course data from JSON file
+ try:
 with open("course_data.json", "r") as file:
     course_data = json.load(file)["courses"]
+    print("Loaded course data:", course_data)
+
+except Exception as e:
+    print(f"Error loading course data: {e}")
+    course_data = {}
 
 # Function to fetch syllabus data from a URL
 def fetch_syllabus_data(url):
@@ -44,15 +50,19 @@ def ask():
     user_message = data.get("question", "").lower()
     course_name = data.get("course", "").strip()
 
+    # Debugging: Log the received data
+    print("Received data:", data)
+
     # Check if the provided course exists
     if course_name not in course_data:
         return jsonify({"answer": f"Sorry, I don’t have information on {course_name}."})
 
     course_info = course_data[course_name]
 
-    # Check if the question matches an FAQ entry
-    if user_message in course_info["question"]:
-        return jsonify({"answer": course_info["question"][user_message]})
+       # Check if the question matches an FAQ entry (case-insensitive)
+    for key, value in course_info["question"].items():
+        if user_message == key.lower():
+            return jsonify({"answer": value})
 
     # Check if the question is about the syllabus
     if "syllabus" in user_message:
