@@ -26,12 +26,14 @@
             text-align: center;
         }
         textarea {
-            width: 100%;
+            width: calc(100% - 20px); /* Prevents overlap */
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 5px;
             resize: none;
             font-size: 16px;
+            box-sizing: border-box;
+            margin-bottom: 10px; /* Adds space below the textarea */
         }
         .button-container {
             display: flex;
