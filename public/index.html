@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Professor's Chatbot</title>
+    <title>Professor Upson's AI Assistant</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -23,7 +23,7 @@
         }
         h1 {
             color: #333;
-            text-align: center;
+            text-align: left;
         }
         textarea {
             width: calc(100% - 20px); /* Prevents overlap */
@@ -32,8 +32,6 @@
             border-radius: 5px;
             resize: none;
             font-size: 16px;
-            box-sizing: border-box;
-            margin-bottom: 10px; /* Adds space below the textarea */
         }
         .button-container {
             display: flex;
@@ -48,11 +46,11 @@
             cursor: pointer;
         }
         .ask-btn {
-            background-color: #e74c3c;
+            background-color: #3498db;
             color: white;
         }
         .clear-btn {
-            background-color: #3498db;
+            background-color: #e74c3c;
             color: white;
         }
         .response-container {
@@ -64,12 +62,42 @@
             font-size: 16px;
             min-height: 50px;
         }
+
+        /* MOBILE RESPONSIVENESS */
+        @media (max-width: 600px) {
+            body {
+                padding: 20px 10px;
+            }
+
+            .chat-container {
+                width: 100%;
+                padding: 15px;
+                box-sizing: border-box;
+            }
+
+            h1 {
+                font-size: 20px;
+            }
+
+            textarea {
+                font-size: 14px;
+            }
+
+            .button-container {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            button {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="chat-container">
         <h1>Professor Upson's AI Assistant</h1>
-        <textarea id="question" placeholder="Type your question here..." rows="4"></textarea>
+        <textarea id="question" placeholder="Type your question here..." rows="5"></textarea>
         <div class="button-container">
             <button class="ask-btn" onclick="askChatbot()">Ask</button>
             <button class="clear-btn" onclick="clearChat()">Clear Chat</button>
