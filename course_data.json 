@@ -1,11 +1,49 @@
 {
-    "course_name": "MGNT-6681: Strategic, Ethical, Global Management",
-    "professor": "John Upson",
-    "office_hours": "Monday & Wednesday, 2:00 PM - 4:00 PM",
-    "syllabus": "The course covers cryptography, network security, and ethical hacking.",
-    "faq": {
-        "What are the office hours?": "Monday & Wednesday, 2:00 PM - 4:00 PM",
-        "When is the midterm?": "The midterm exam is on March 20th.",
-        "What topics are covered?": "Cryptography, network security, and ethical hacking."
+    "courses": {
+        "MGNT-4625: International Management": {
+            "professor": "TBD",
+            "office_hours": "Tuesday & Thursday, 3:00 PM - 5:00 PM",
+            "syllabus": "This course explores management practices in international business environments.",
+            "faq": {
+                "What are the office hours?": "Tuesday & Thursday, 3:00 PM - 5:00 PM",
+                "What topics are covered?": "Global business strategies, cultural differences, and international trade."
+            }
+        },
+        "MGNT-4660: Strategic Management": {
+            "professor": "TBD",
+            "office_hours": "Wednesday, 1:00 PM - 3:00 PM",
+            "syllabus": "Focuses on strategic planning and competitive analysis.",
+            "faq": {
+                "What are the office hours?": "Wednesday, 1:00 PM - 3:00 PM",
+                "What topics are covered?": "Strategic planning, competitive advantage, and corporate decision-making."
+            }
+        },
+        "MGNT-6681: Strategic, Ethical, Global Management": {
+            "professor": "TBD",
+            "office_hours": "Thursday, 4:00 PM - 6:00 PM",
+            "syllabus": "Examines ethical and strategic management in a global context.",
+            "faq": {
+                "What are the office hours?": "Thursday, 4:00 PM - 6:00 PM",
+                "What topics are covered?": "Ethical leadership, corporate governance, and globalization."
+            }
+        },
+        "MGNT-6685: Non Profit Management": {
+            "professor": "TBD",
+            "office_hours": "Monday, 10:00 AM - 12:00 PM",
+            "syllabus": "Covers management strategies for nonprofit organizations.",
+            "faq": {
+                "What are the office hours?": "Monday, 10:00 AM - 12:00 PM",
+                "What topics are covered?": "Fundraising, nonprofit governance, and social entrepreneurship."
+            }
+        },
+        "XIDS-2002: WDYKA: Lessons in Travel": {
+            "professor": "TBD",
+            "office_hours": "Friday, 2:00 PM - 4:00 PM",
+            "syllabus": "An interdisciplinary look at cultural experiences through travel.",
+            "faq": {
+                "What are the office hours?": "Friday, 2:00 PM - 4:00 PM",
+                "What topics are covered?": "Cultural awareness, global travel insights, and experiential learning."
+            }
+        }
     }
 }
