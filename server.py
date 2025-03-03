@@ -22,7 +22,7 @@ def ask():
     response = openai_client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[
-            {"role": "system", "content": "You are a Virtual Assistant for Professor John Upson's classes, he is a professor at the university of west georgia."},
+            {"role": "system", "content": "You are a chatbot assistant for Professor John Upson’s classes at the University of West Georgia. Your job is to assist students by answering questions about course materials, assignments, deadlines, and university policies. Refer to the course syllabus, reading materials, and lecture notes to provide accurate answers."},
             {"role": "user", "content": user_message}
         ]
     )

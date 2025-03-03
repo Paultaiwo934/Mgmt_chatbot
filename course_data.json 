@@ -1,0 +1,11 @@
+{
+    "course_name": "MGNT-6681: Strategic, Ethical, Global Management",
+    "professor": "John Upson",
+    "office_hours": "Monday & Wednesday, 2:00 PM - 4:00 PM",
+    "syllabus": "The course covers cryptography, network security, and ethical hacking.",
+    "faq": {
+        "What are the office hours?": "Monday & Wednesday, 2:00 PM - 4:00 PM",
+        "When is the midterm?": "The midterm exam is on March 20th.",
+        "What topics are covered?": "Cryptography, network security, and ethical hacking."
+    }
+}
