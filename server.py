@@ -10,18 +10,17 @@ app = Flask(__name__)
 CORS(app)
 
 # Load OpenAI API key from environment variable (recommended for security)
-openai_api_key = os.getenv("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")
+openai_api_key = os.getenv("k-proj-F-X2ocOHbvolSW0hUSNlXSSr3_rsdclNxaUGCHBiUIvPTqaOjlp2JqT6BuuFh0x3dS9QWrFgiaT3BlbkFJjSPFm1pbR0NnZTmKXSzIueW0ktOu0bIPTepOrbgLuKyJrRGZTUIC-lVmj4phFS3jfKMe3hIzgA")
 if not openai_api_key:
     raise ValueError("OPENAI_API_KEY environment variable is not set.")
 
-openai_client = openai.OpenAI(api_key="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")
+openai_client = openai.OpenAI(api_key="k-proj-F-X2ocOHbvolSW0hUSNlXSSr3_rsdclNxaUGCHBiUIvPTqaOjlp2JqT6BuuFh0x3dS9QWrFgiaT3BlbkFJjSPFm1pbR0NnZTmKXSzIueW0ktOu0bIPTepOrbgLuKyJrRGZTUIC-lVmj4phFS3jfKMe3hIzgA")
 
 # Load course data from JSON file
- try:
-with open("course_data.json", "r") as file:
-    course_data = json.load(file)["courses"]
-    print("Loaded course data:", course_data)
-
+try:
+    with open("course_data.json", "r") as file:
+        course_data = json.load(file)["courses"]
+        print("Loaded course data:", course_data)  # Debugging: Print loaded data
 except Exception as e:
     print(f"Error loading course data: {e}")
     course_data = {}
@@ -59,7 +58,7 @@ def ask():
 
     course_info = course_data[course_name]
 
-       # Check if the question matches an FAQ entry (case-insensitive)
+    # Check if the question matches an FAQ entry (case-insensitive)
     for key, value in course_info["question"].items():
         if user_message == key.lower():
             return jsonify({"answer": value})
