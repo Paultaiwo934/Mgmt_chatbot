@@ -10,11 +10,11 @@ app = Flask(__name__)
 CORS(app)
 
 # Load OpenAI API key from environment variable (recommended for security)
-openai_api_key = "k-proj-F-X2ocOHbvolSW0hUSNlXSSr3_rsdclNxaUGCHBiUIvPTqaOjlp2JqT6BuuFh0x3dS9QWrFgiaT3BlbkFJjSPFm1pbR0NnZTmKXSzIueW0ktOu0bIPTepOrbgLuKyJrRGZTUIC-lVmj4phFS3jfKMe3hIzgA"
+openai_api_key = "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"
 if not openai_api_key:
     raise ValueError("OPENAI_API_KEY environment variable is not set.")
 
-openai_client = openai.OpenAI(api_key="k-proj-F-X2ocOHbvolSW0hUSNlXSSr3_rsdclNxaUGCHBiUIvPTqaOjlp2JqT6BuuFh0x3dS9QWrFgiaT3BlbkFJjSPFm1pbR0NnZTmKXSzIueW0ktOu0bIPTepOrbgLuKyJrRGZTUIC-lVmj4phFS3jfKMe3hIzgA")
+openai_client = openai.OpenAI(api_key="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")
 
 # Get the absolute path to the JSON file
 current_dir = os.path.dirname(os.path.abspath(__file__))
@@ -99,14 +99,23 @@ def ask():
         response = openai_client.chat.completions.create(
             model="gpt-3.5-turbo",
             messages=[
-                {"role": "system", "content": f"You are a chatbot assistant for {course_name} taught by {course_info.get('professor', 'an instructor')} at the University of West Georgia. Your job is to assist students by answering questions about course materials, assignments, deadlines, and university policies. Refer to the course syllabus, reading materials, and lecture notes to provide accurate answers."},
+                {"role": "system", "content": f"You are a chatbot assistant for. Your job is to assist students by answering questions about course materials, assignments, deadlines, and university policies. Refer to the course syllabus, reading materials, and lecture notes to provide accurate answers."},
                 {"role": "user", "content": user_message}
             ]
         )
         chatbot_reply = response.choices[0].message.content
         return jsonify({"answer": chatbot_reply})
+    
     except Exception as e:
         return jsonify({"answer": f"An error occurred while processing your request: {str(e)}"})
+
+    # Explicitly set CORS headers in the response
+    response_data = jsonify({"answer": chatbot_reply})
+    response_data.headers.add("Access-Control-Allow-Origin", "*")
+    response_data.headers.add("Access-Control-Allow-Headers", "Content-Type,Authorization")
+    response_data.headers.add("Access-Control-Allow-Methods", "POST,OPTIONS")
+
+    return response_data
 
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
