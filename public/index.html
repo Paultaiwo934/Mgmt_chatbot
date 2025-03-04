@@ -25,6 +25,16 @@
             color: #333;
             text-align: left;
         }
+        .course-dropdown {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            background-color: white;
+            color: #333;
+        }
         textarea {
             width: calc(100% - 20px); /* Prevents overlap */
             padding: 10px;
@@ -97,6 +107,16 @@
 <body>
     <div class="chat-container">
         <h1>Professor Upson's AI Assistant</h1>
+        
+        <!-- Add a dropdown for course selection -->
+        <select id="course" class="course-dropdown">
+            <option value="MGNT-4625: International Management">MGNT-4625: International Management</option>
+            <option value="MGNT-4660: Strategic Management">MGNT-4660: Strategic Management</option>
+            <option value="MGNT-6681: Strategic, Ethical, Global Management">MGNT-6681: Strategic, Ethical, Global Management</option>
+            <option value="MGNT-6685: Non Profit Management">MGNT-6685: Non Profit Management</option>
+            <option value="XIDS-2002: WDYKA: Lessons in Travel">XIDS-2002: WDYKA: Lessons in Travel</option>
+        </select>
+
         <textarea id="question" placeholder="Type your question here..." rows="5"></textarea>
         <div class="button-container">
             <button class="ask-btn" onclick="askChatbot()">Ask</button>
@@ -111,6 +131,7 @@
     <script>
         async function askChatbot() {
             let question = document.getElementById("question").value;
+            let course = document.getElementById("course").value; // Get the selected course
             let responseElement = document.getElementById("response");
 
             if (!question.trim()) {
@@ -118,13 +139,17 @@
                 return;
             }
 
+            // Debugging: Log the payload
+            console.log("Sending payload:", { question: question, course: course });
+
             let response = await fetch("https://mgmt-chatbot.onrender.com/ask", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ question: question })
+                body: JSON.stringify({ question: question, course: course }) // Include course in the payload
             });
 
             let data = await response.json();
+            console.log("Received response:", data); // Debugging: Log the response
             responseElement.innerText = data.answer || "Error getting response.";
         }
 
