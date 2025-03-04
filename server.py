@@ -16,11 +16,21 @@ if not openai_api_key:
 
 openai_client = openai.OpenAI(api_key="k-proj-F-X2ocOHbvolSW0hUSNlXSSr3_rsdclNxaUGCHBiUIvPTqaOjlp2JqT6BuuFh0x3dS9QWrFgiaT3BlbkFJjSPFm1pbR0NnZTmKXSzIueW0ktOu0bIPTepOrbgLuKyJrRGZTUIC-lVmj4phFS3jfKMe3hIzgA")
 
+# Get the absolute path to the JSON file
+current_dir = os.path.dirname(os.path.abspath(__file__))
+json_path = os.path.join(current_dir, "course_data.json")
+
+# Debugging: Print current directory and JSON file path
+print("Current directory:", os.getcwd())
+print("JSON file path:", json_path)
+
 # Load course data from JSON file
 try:
     with open("course_data.json", "r") as file:
         course_data = json.load(file)["courses"]
-        print("Loaded course data:", course_data)  # Debugging: Print loaded data
+        print("Loaded course data:", course_data)  
+
+# Debugging: Print loaded data
 except Exception as e:
     print(f"Error loading course data: {e}")
     course_data = {}
