@@ -7,11 +7,10 @@ import openai
 app = Flask(__name__)
 CORS(app)
 
-BASE_DIR = os.path.dirname(os.path.abspath(__file__))  # Get the directory of server.py
-DATA_PATH = os.path.join(BASE_DIR, "course_data.json")  # Construct absolute path
-
-with open(DATA_PATH, "r") as file:
-    course_data = json.load(file)
+# Load course data from JSON
+with open("course_data.txt", "r") as file:
+    course_data = file.read()
+    
 
 openai_client = openai.OpenAI(api_key=os.getenv("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"))  # Use environment variable for security
 
