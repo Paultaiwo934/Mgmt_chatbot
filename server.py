@@ -42,4 +42,13 @@ def ask():
         model="gpt-3.5-turbo",
         messages=[
             {"role": "system", "content": "You are a helpful assistant for Professor John Upson’s courses."},
-            {"role
+            {"role": "user", "content": user_question}
+        ]
+    )
+
+    chatbot_reply = response.choices[0].message['content']
+    return jsonify({"answer": chatbot_reply})
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
