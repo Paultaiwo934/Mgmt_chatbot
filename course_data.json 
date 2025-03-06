@@ -1,13 +1,70 @@
 {
-    "course_name": "MGNT-4660: Strategic Management",
-    "professor": "Dr. John Upson",
-    "office_hours": "Monday to Friday, 8:30 AM - 5:00 PM",
-    "syllabus": "Focuses on strategic planning and competitive.",
-    "faq": {
-        "what are the office hours?": "I am generally on campus from 8:30am to 5:00pm every day. I can meet nearly any time via in-person, phone, or online. However, I serve in an administrative position as the Associate Dean, so please schedule an appointment in advance so that I can make sure to be available.",
-        "what is his email?": "jupson@westga.edu",
-        "what is his phone number?": "678-839-6467",
-        "where is his office?": "Richards Hall Rm 301 F",
-        "what topics are covered?": "Strategic planning, competitive advantage, and corporate decision-making."
+    "courses": {
+        "MGNT-4625: International Management": {
+            "professor": "Dr. John Upson",
+            "office_hours": "Monday to Friday, 8:30 AM - 5:00 PM",
+            "syllabus": "Focuses on strategic planning and competitive analysis.",
+            "syllabus_link": "https://westga.campusconcourse.com/view_syllabus?course_id=42381",
+            "question": {
+                "what are the office hours?": "I am generally on campus from 8:30am to 5:00pm every day. I can meet nearly any time via in-person, phone, or online. However, I serve in an administrative position as the Associate Dean, so please schedule an appointment in advance so that I can make sure to be available.",
+                "what is his email?": "jupson@westga.edu",
+                "what is his phone number?": "678-839-6467",
+                "where is his office?": "Richards Hall rm 301 F",
+                "what topics are covered?": "Strategic planning, competitive advantage, and corporate decision-making."
+            }
+        },
+        "MGNT-4660: Strategic Management": {
+            "professor": "Dr. John Upson",
+            "office_hours": "Monday to Friday, 8:30 AM - 5:00 PM",
+            "syllabus": "Focuses on strategic planning and competitive analysis.",
+            "syllabus_link": "https://westga.campusconcourse.com/view_syllabus?course_id=42381",
+            "question": {
+                "what are the office hours?": "I am generally on campus from 8:30am to 5:00pm every day. I can meet nearly any time via in-person, phone, or online. However, I serve in an administrative position as the Associate Dean, so please schedule an appointment in advance so that I can make sure to be available.",
+                "what is his email?": "jupson@westga.edu",
+                "what is his phone number?": "678-839-6467",
+                "where is his office?": "Richards Hall rm 301 F",
+                "what topics are covered?": "Strategic planning, competitive advantage, and corporate decision-making."
+            }
+        },
+        "MGNT-6681: Strategic, Ethical, Global Management": {
+            "professor": "Dr. John Upson",
+            "office_hours": "Monday to Friday, 8:30 AM - 5:00 PM",
+            "syllabus": "Focuses on strategic planning and competitive analysis.",
+            "syllabus_link": "https://westga.campusconcourse.com/view_syllabus?course_id=42381",
+            "question": {
+                "what are the office hours?": "I am generally on campus from 8:30am to 5:00pm every day. I can meet nearly any time via in-person, phone, or online. However, I serve in an administrative position as the Associate Dean, so please schedule an appointment in advance so that I can make sure to be available.",
+                "what is his email?": "jupson@westga.edu",
+                "what is his phone number?": "678-839-6467",
+                "where is his office?": "Richards Hall rm 301 F",
+                "what topics are covered?": "Strategic planning, competitive advantage, and corporate decision-making."
+            }
+        },
+        "MGNT-6685: Non Profit Management": {
+            "professor": "Dr. John Upson",
+            "office_hours": "Monday to Friday, 8:30 AM - 5:00 PM",
+            "syllabus": "Focuses on strategic planning and competitive analysis.",
+            "syllabus_link": "https://westga.campusconcourse.com/view_syllabus?course_id=42381",
+            "question": {
+                "what are the office hours?": "I am generally on campus from 8:30am to 5:00pm every day. I can meet nearly any time via in-person, phone, or online. However, I serve in an administrative position as the Associate Dean, so please schedule an appointment in advance so that I can make sure to be available.",
+                "what is his email?": "jupson@westga.edu",
+                "what is his phone number?": "678-839-6467",
+                "where is his office?": "Richards Hall rm 301 F",
+                "what topics are covered?": "Strategic planning, competitive advantage, and corporate decision-making."
+            }
+        },
+        "XIDS-2002: WDYKA: Lessons in Travel": {
+            "professor": "Dr. John Upson",
+            "office_hours": "Monday to Friday, 8:30 AM - 5:00 PM",
+            "syllabus": "Focuses on strategic planning and competitive analysis.",
+            "syllabus_link": "https://westga.campusconcourse.com/view_syllabus?course_id=42381",
+            "question": {
+                "what are the office hours?": "I am generally on campus from 8:30am to 5:00pm every day. I can meet nearly any time via in-person, phone, or online. However, I serve in an administrative position as the Associate Dean, so please schedule an appointment in advance so that I can make sure to be available.",
+                "what is his email?": "jupson@westga.edu",
+                "what is his phone number?": "678-839-6467",
+                "where is his office?": "Richards Hall rm 301 F",
+                "what topics are covered?": "Strategic planning, competitive advantage, and corporate decision-making."
+            }
+        }
     }
 }
+
