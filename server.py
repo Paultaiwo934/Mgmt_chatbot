@@ -49,7 +49,7 @@ def ask_chatgpt(question):
     try:
         response = openai.ChatCompletion.create(
             model="gpt-3.5-turbo",
-            messages=[{"role": "system", "content": "You are an AI assistant for Mr. Reaves' classes at the University of West Georgia."},
+            messages=[{"role": "system", "content": "You are an AI assistant for Professor John Upson’s classes at the University of West Georgia. Your job is to assist students by answering questions about course materials, assignments, deadlines, and university policies."},
                       {"role": "user", "content": question}],
             temperature=0.7,
             max_tokens=200
