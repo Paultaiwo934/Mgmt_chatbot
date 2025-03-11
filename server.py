@@ -1,46 +1,79 @@
 from flask import Flask, request, jsonify
-from flask_cors import CORS
 import openai
-import os
 import json
+import os
 
 app = Flask(__name__)
 
-# Enable CORS for all domains (for local testing)
-CORS(app)
+# Load OpenAI API Key from environment variable
+OPENAI_API_KEY = os.getenv("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")
 
-openai_client = openai.OpenAI(api_key="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")
+# Load courses data
+COURSES_FILE = "courses.json"
 
-@app.route("/")
-def home():
-    return "Chatbot API is running! Use /ask to send messages."
+try:
+    with open(COURSES_FILE, "r") as file:
+        courses_data = json.load(file)
+except Exception as e:
+    courses_data = {}
+    print(f"Error loading courses.json: {e}")
+
+# Function to find an answer from courses.json
+def find_answer(question):
+    question_lower = question.lower()
+    
+    for course, details in courses_data.items():
+        if "sections" in details:
+            for section, sec_details in details["sections"].items():
+                for key, value in sec_details.items():
+                    if isinstance(value, str) and question_lower in key.lower():
+                        return value
+                    elif isinstance(value, list) and any(question_lower in str(item).lower() for item in value):
+                        return ", ".join(value)
+        if "notes" in details and question_lower in details["notes"].lower():
+            return details["notes"]
+        if "due_dates" in details:
+            for due in details["due_dates"]:
+                if question_lower in due["title"].lower():
+                    return f"{due['title']} is due on {due['due_date']}."
+
+    return None  # No match found in courses.json
+
+# OpenAI API Call
+def ask_chatgpt(question):
+    if not OPENAI_API_KEY:
+        return "Error: OpenAI API key is missing."
+    
+    openai.api_key = OPENAI_API_KEY
+
+    try:
+        response = openai.ChatCompletion.create(
+            model="gpt-3.5-turbo",
+            messages=[{"role": "system", "content": "You are an AI assistant for Mr. Reaves' classes at the University of West Georgia."},
+                      {"role": "user", "content": question}],
+            temperature=0.7,
+            max_tokens=200
+        )
+        return response["choices"][0]["message"]["content"]
+    except Exception as e:
+        return f"Error fetching response from OpenAI: {str(e)}"
 
 @app.route("/ask", methods=["POST"])
 def ask():
     data = request.get_json()
-    user_message = data.get("question", "")
+    question = data.get("input", "").strip()
 
-    response = openai_client.chat.completions.create(
-        model="gpt-3.5-turbo",
-        messages=[
-            {"role": "system", "content": "You are a chatbot assistant for Professor John Upson’s classes at the University of West Georgia. Your job is to assist students by answering questions about course materials, assignments, deadlines, and university policies. Refer to the course syllabus, reading materials, and lecture notes to provide accurate answers."},
-            {"role": "user", "content": user_message}
-        ]
-    )
+    if not question:
+        return jsonify({"error": "Input cannot be empty."})
 
-    chatbot_reply = response.choices[0].message.content
+    # Check for an answer in courses.json
+    answer = find_answer(question)
+    if answer:
+        return jsonify({"response": answer})
 
-    # Explicitly set CORS headers in the response
-    response_data = jsonify({"answer": chatbot_reply})
-    response_data.headers.add("Access-Control-Allow-Origin", "*")
-    response_data.headers.add("Access-Control-Allow-Headers", "Content-Type,Authorization")
-    response_data.headers.add("Access-Control-Allow-Methods", "POST,OPTIONS")
-
-    return response_data
+    # If not found, ask OpenAI
+    response = ask_chatgpt(question)
+    return jsonify({"response": response})
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))  # Default to 5000 if PORT isn't set
-    app.run(host="0.0.0.0", port=port)
-
-
-
+    app.run(host="0.0.0.0", port=5000, debug=True)
