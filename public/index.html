@@ -131,7 +131,7 @@
             console.log("User input:", userInput);
 
             try {
-                fetch("/ask", {  
+                fetch("https://mgmt-chatbot.onrender.com/ask", {  
                     method: "POST",
                     body: JSON.stringify({ message: userInput }),  
                     headers: { "Content-Type": "application/json" }  
