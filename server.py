@@ -8,7 +8,7 @@ app = Flask(__name__)
 # Load OpenAI API Key from environment variable
 OPENAI_API_KEY = os.getenv("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")
 
-# Load courses data
+# Load courses data (Assuming the 'courses.json' file is in the same directory as server.py)
 COURSES_FILE = "courses.json"
 
 try:
@@ -61,7 +61,7 @@ def ask_chatgpt(question):
 @app.route("/ask", methods=["POST"])
 def ask():
     data = request.get_json()
-    question = data.get("input", "").strip()
+    question = data.get("message", "").strip()
 
     if not question:
         return jsonify({"error": "Input cannot be empty."})

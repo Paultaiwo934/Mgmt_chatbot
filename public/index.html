@@ -112,59 +112,45 @@
     </div>
 
     <script>
-    async function sendMessage() {
-        const userInput = document.getElementById('userInput').value.trim();
-        const chatWindow = document.getElementById('chatWindow');
+        async function sendMessage() {
+            const userInput = document.getElementById('userInput').value.trim();
+            const chatWindow = document.getElementById('chatWindow');
 
-        if (!userInput) {
-            alert("Please enter a question!");
-            return;
+            if (!userInput) {
+                alert("Please enter a question!");
+                return;
+            }
+
+            const userMessage = document.createElement('div');
+            userMessage.className = 'chat-bubble user-message';
+            userMessage.textContent = userInput;
+            chatWindow.appendChild(userMessage);
+            chatWindow.scrollTop = chatWindow.scrollHeight;
+
+            document.getElementById('userInput').value = '';
+            console.log("User input:", userInput);
+
+            try {
+                fetch("/ask", {  
+                    method: "POST",
+                    body: JSON.stringify({ message: userInput }),  
+                    headers: { "Content-Type": "application/json" }  
+                })
+                .then(response => response.json())  
+                .then(data => {
+                    console.log("Data from API:", data);
+                    if (data.error) {
+                        console.error("Error from API:", data.error);
+                    } else {
+                        console.log("Bot response:", data.response);
+                        addMessage(data.response, "bot");  
+                    }
+                })
+                .catch(error => console.error("Fetch error:", error));
+            } catch (error) {
+                console.error("Error:", error);
+            }
         }
-
-        const userMessage = document.createElement('div');
-        userMessage.className = 'chat-bubble user-message';
-        userMessage.textContent = userInput;
-        chatWindow.appendChild(userMessage);
-        chatWindow.scrollTop = chatWindow.scrollHeight;
-
-        document.getElementById('userInput').value = '';
-        console.log("User input:", userInput);
-        try {
-            // const response = await fetch('/ask', {
-            //     method: 'POST',
-            //     headers: { 'Content-Type': 'application/json' },
-            //     body: JSON.stringify({ input: userInput })
-            // });
-
-            fetch("/ask", {  
-                method: "POST",
-                body: JSON.stringify({ message: userInput }),  
-                headers: { "Content-Type": "application/json" }  
-            })
-            .then(response => response.json())  // This will fail if response is HTML
-            .then(data => {
-                console.log("Data from API:", data);
-                if (data.error) {
-                    console.error("Error from API:", data.error);
-                } else {
-                    console.log("Bot response:", data.response);
-                    addMessage(data.response, "bot");  
-                }
-            })
-            .catch(error => console.error("Fetch error:", error));
-
-            // const result = await response.json();
-            // console.log("result =>", result);
-            // const botResponse = document.createElement('div');
-            // botResponse.className = 'chat-bubble bot-response';
-            // botResponse.textContent = result.response || result.error || "Unexpected error.";
-            // chatWindow.appendChild(botResponse);
-            // chatWindow.scrollTop = chatWindow.scrollHeight;
-
-        } catch (error) {
-            console.error("Error:", error);
-        }
-    }
     </script>
 </body>
 </html>
