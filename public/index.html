@@ -3,153 +3,134 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reaves AI Assistant</title>
-    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;600&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <title>Professor Upson's AI Assistant</title>
     <style>
         body {
-            font-family: 'Roboto', sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background: linear-gradient(135deg, rgb(0, 188, 230), rgb(199, 200, 202));
-            color: #333;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #2193b0, #6dd5ed);
+            text-align: center;
+            padding: 50px;
+            color: white;
         }
-
-        .container {
-            background: #fff;
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
-            max-width: 700px;
-            width: 100%;
-        }
-
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .header h1 {
-            font-size: 2rem;
-            color: rgb(0, 101, 166);
-            font-family: "Oswald", sans-serif;
-            text-transform: uppercase;
-        }
-
-        .header img {
-            max-width: 70px;
-            height: 70px;
-            border-radius: 50%;
-            border: 3px solid rgb(0, 101, 166);
-        }
-
-        .chat-window {
-            height: 350px;
-            overflow-y: auto;
-            background: #f1f5f9;
-            border-radius: 8px;
-            padding: 10px;
-            margin-bottom: 20px;
-        }
-
-        .chat-bubble {
-            margin: 10px 0;
-            padding: 12px;
-            border-radius: 8px;
-            white-space: pre-wrap;
-            font-family: 'Roboto', sans-serif;
-        }
-
-        .user-message {
-            background: rgb(0, 188, 230);
-            color: #fff;
-            text-align: right;
-        }
-
-        .bot-response {
-            background: rgb(199, 200, 202);
-            color: rgb(77, 81, 82);
+        .chat-container {
+            max-width: 500px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
             text-align: left;
         }
-
-        textarea {
-            width: 100%;
-            height: 100px;
-            margin-bottom: 10px;
-            padding: 10px;
-            font-size: 1rem;
-            border-radius: 8px;
-            resize: none;
+        h1 {
+            color: #333;
+            text-align: left;
         }
-
+        textarea {
+            width: calc(100% - 20px); /* Prevents overlap */
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            resize: none;
+            font-size: 16px;
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 10px;
+        }
         button {
-            background: rgb(0, 101, 166);
-            color: #fff;
-            padding: 12px 24px;
-            border-radius: 8px;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
             cursor: pointer;
         }
-
+        .ask-btn {
+            background-color: #3498db;
+            color: white;
+        }
         .clear-btn {
-            background-color: rgb(226, 43, 40);
+            background-color: #e74c3c;
+            color: white;
+        }
+        .response-container {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            background: #f1f1f1;
+            color: black;
+            font-size: 16px;
+            min-height: 50px;
         }
 
+        /* MOBILE RESPONSIVENESS */
+        @media (max-width: 600px) {
+            body {
+                padding: 20px 10px;
+            }
+
+            .chat-container {
+                width: 100%;
+                padding: 15px;
+                box-sizing: border-box;
+            }
+
+            h1 {
+                font-size: 20px;
+            }
+
+            textarea {
+                font-size: 14px;
+            }
+
+            .button-container {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            button {
+                width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>Dr. Upson's AI</h1>
-        </div>
-        <div class="chat-window" id="chatWindow"></div>
-        <textarea id="userInput" placeholder="Type your question here..."></textarea>
-        <div>
-            <button onclick="sendMessage()">Ask</button>
+    <div class="chat-container">
+        <h1>Professor Upson's AI Assistant</h1>
+        <textarea id="question" placeholder="Type your question here..." rows="5"></textarea>
+        <div class="button-container">
+            <button class="ask-btn" onclick="askChatbot()">Ask</button>
             <button class="clear-btn" onclick="clearChat()">Clear Chat</button>
+        </div>
+        <div class="response-container">
+            <strong>Response:</strong>
+            <p id="response"></p>
         </div>
     </div>
 
     <script>
-        async function sendMessage() {
-            const userInput = document.getElementById('userInput').value.trim();
-            const chatWindow = document.getElementById('chatWindow');
+        async function askChatbot() {
+            let question = document.getElementById("question").value;
+            let responseElement = document.getElementById("response");
 
-            if (!userInput) {
-                alert("Please enter a question!");
+            if (!question.trim()) {
+                responseElement.innerText = "Please enter a question.";
                 return;
             }
 
-            const userMessage = document.createElement('div');
-            userMessage.className = 'chat-bubble user-message';
-            userMessage.textContent = userInput;
-            chatWindow.appendChild(userMessage);
-            chatWindow.scrollTop = chatWindow.scrollHeight;
+            let response = await fetch("https://mgmt-chatbot.onrender.com/ask", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ question: question })
+            });
 
-            document.getElementById('userInput').value = '';
-            console.log("User input:", userInput);
+            let data = await response.json();
+            responseElement.innerText = data.answer || "Error getting response.";
+        }
 
-            try {
-                fetch("https://mgmt-chatbot.onrender.com/ask", {  
-                    method: "POST",
-                    body: JSON.stringify({ message: userInput }),  
-                    headers: { "Content-Type": "application/json" }  
-                })
-                .then(response => response.json())  
-                .then(data => {
-                    console.log("Data from API:", data);
-                    if (data.error) {
-                        console.error("Error from API:", data.error);
-                    } else {
-                        console.log("Bot response:", data.response);
-                        addMessage(data.response, "bot");  
-                    }
-                })
-                .catch(error => console.error("Fetch error:", error));
-            } catch (error) {
-                console.error("Error:", error);
-            }
+        function clearChat() {
+            document.getElementById("question").value = "";
+            document.getElementById("response").innerText = "";
         }
     </script>
 </body>

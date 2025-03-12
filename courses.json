@@ -1,203 +1,71 @@
 {
-  "MGNT 3615": {
-    "sections": {
-      "01D": {
-        "type": "Partially online",
-        "meetings": {
-          "Orientation": "January 13th at 9:30 AM in Richards 207",
-          "Excel Labs": [
-            "February 24th at 9:30 AM in Richards 207",
-            "March 10th at 9:30 AM in Richards 207",
-            "April 14th at 9:30 AM in Richards 207"
-          ]
-        },
-        "syllabus_link": "https://westga.campusconcourse.com/view_syllabus?course_id=43247&public_mode=1"
+  "courses": {
+      "MGNT-4625: International Management": {
+          "professor": "Dr. John Upson",
+          "office_hours": "Monday to Friday, 8:30 AM - 5:00 PM",
+          "syllabus": "Focuses on strategic planning and competitive analysis.",
+          "syllabus_link": "https://westga.campusconcourse.com/view_syllabus?course_id=42381",
+          "question": {
+              "what are the office hours?": "I am generally on campus from 8:30am to 5:00pm every day. I can meet nearly any time via in-person, phone, or online. However, I serve in an administrative position as the Associate Dean, so please schedule an appointment in advance so that I can make sure to be available.",
+              "what is his email?": "jupson@westga.edu",
+              "what is his phone number?": "678-839-6467",
+              "where is his office?": "Richards Hall rm 301 F",
+              "what topics are covered?": "Strategic planning, competitive advantage, and corporate decision-making."
+          }
       },
-      "E02": {
-        "type": "Fully online",
-        "syllabus_link": "https://westga.campusconcourse.com/view_syllabus?course_id=43248&public_mode=1"
+      "MGNT-4660: Strategic Management": {
+          "professor": "Dr. John Upson",
+          "office_hours": "Monday to Friday, 8:30 AM - 5:00 PM",
+          "syllabus": "Focuses on strategic planning and competitive analysis.",
+          "syllabus_link": "https://westga.campusconcourse.com/view_syllabus?course_id=42381",
+          "question": {
+              "what are the office hours?": "I am generally on campus from 8:30am to 5:00pm every day. I can meet nearly any time via in-person, phone, or online. However, I serve in an administrative position as the Associate Dean, so please schedule an appointment in advance so that I can make sure to be available.",
+              "what is his email?": "jupson@westga.edu",
+              "what is his phone number?": "678-839-6467",
+              "where is his office?": "Richards Hall rm 301 F",
+              "what topics are covered?": "Strategic planning, competitive advantage, and corporate decision-making."
+          }
       },
-      "E03": {
-        "type": "Fully online",
-        "syllabus_link": "https://westga.campusconcourse.com/view_syllabus?course_id=43249&public_mode=1"
+      "MGNT-6681: Strategic, Ethical, Global Management": {
+          "professor": "Dr. John Upson",
+          "office_hours": "Monday to Friday, 8:30 AM - 5:00 PM",
+          "syllabus": "Focuses on strategic planning and competitive analysis.",
+          "syllabus_link": "https://westga.campusconcourse.com/view_syllabus?course_id=42381",
+          "question": {
+              "what are the office hours?": "I am generally on campus from 8:30am to 5:00pm every day. I can meet nearly any time via in-person, phone, or online. However, I serve in an administrative position as the Associate Dean, so please schedule an appointment in advance so that I can make sure to be available.",
+              "what is his email?": "jupson@westga.edu",
+              "what is his phone number?": "678-839-6467",
+              "where is his office?": "Richards Hall rm 301 F",
+              "what topics are covered?": "Strategic planning, competitive advantage, and corporate decision-making."
+          }
+      },
+      "MGNT-6685: Non Profit Management": {
+          "professor": "Dr. John Upson",
+          "office_hours": "Monday to Friday, 8:30 AM - 5:00 PM",
+          "syllabus": "Focuses on strategic planning and competitive analysis.",
+          "syllabus_link": "https://westga.campusconcourse.com/view_syllabus?course_id=42381",
+          "question": {
+              "what are the office hours?": "I am generally on campus from 8:30am to 5:00pm every day. I can meet nearly any time via in-person, phone, or online. However, I serve in an administrative position as the Associate Dean, so please schedule an appointment in advance so that I can make sure to be available.",
+              "what is his email?": "jupson@westga.edu",
+              "what is his phone number?": "678-839-6467",
+              "where is his office?": "Richards Hall rm 301 F",
+              "what topics are covered?": "Strategic planning, competitive advantage, and corporate decision-making."
+          }
+      },
+      "XIDS-2002: WDYKA: Lessons in Travel": {
+          "professor": "Dr. John Upson",
+          "office_hours": "Monday to Friday, 8:30 AM - 5:00 PM",
+          "syllabus": "Focuses on strategic planning and competitive analysis.",
+          "syllabus_link": "https://westga.campusconcourse.com/view_syllabus?course_id=42381",
+          "question": {
+              "what are the office hours?": "I am generally on campus from 8:30am to 5:00pm every day. I can meet nearly any time via in-person, phone, or online. However, I serve in an administrative position as the Associate Dean, so please schedule an appointment in advance so that I can make sure to be available.",
+              "what is his email?": "jupson@westga.edu",
+              "what is his phone number?": "678-839-6467",
+              "where is his office?": "Richards Hall rm 301 F",
+              "what topics are covered?": "Strategic planning, competitive advantage, and corporate decision-making."
+          }
       }
-    },
-    "notes": "The MGNT 3615 classes use the Day One Access system for digital materials.",
-    "due_dates": [
-      {
-        "title": "Chapter 01 Quiz: Operations Management and Value Chains",
-        "due_date": "2025-02-28"
-      },
-      {
-        "title": "Chapter 02 Quiz: Measuring Performance in Operations and Value",
-        "due_date": "2025-02-28"
-      },
-      {
-        "title": "Chapter 02 Excel Activity: VLC",
-        "due_date": "2025-02-28"
-      },
-      {
-        "title": "Chapter 03 Quiz: Operations Strategy",
-        "due_date": "2025-02-28"
-      },
-      {
-        "title": "Chapter 04 Quiz: Technology and Operations Management",
-        "due_date": "2025-02-28"
-      },
-      {
-        "title": "Chapter 05 Exploring Operations Activity",
-        "due_date": "2025-03-28"
-      },
-      {
-        "title": "Chapter 05 Quiz: Goods and Service",
-        "due_date": "2025-03-28"
-      },
-      {
-        "title": "Chapter 06 Quiz: Supply Chain Design",
-        "due_date": "2025-03-28"
-      },
-      {
-        "title": "Chapter 06 Excel Activity: Break-Even",
-        "due_date": "2025-03-28"
-      },
-      {
-        "title": "Chapter 07 Quiz: Process Selection",
-        "due_date": "2025-03-28"
-      },
-      {
-        "title": "Chapter 08 Quiz: Facility and Work Design",
-        "due_date": "2025-03-28"
-      },
-      {
-        "title": "Chapter 09 Exploring Operations Activity",
-        "due_date": "2025-04-25"
-      },
-      {
-        "title": "Chapter 09 Quiz: Forecasting",
-        "due_date": "2025-04-25"
-      },
-      {
-        "title": "Chapter 09 Excel Activity: Exponential",
-        "due_date": "2025-04-25"
-      },
-      {
-        "title": "Chapter 10 Quiz: Capacity Management",
-        "due_date": "2025-04-25"
-      },
-      {
-        "title": "Chapter 10 Excel Activity: Capacity",
-        "due_date": "2025-04-25"
-      },
-      {
-        "title": "Chapter 11 Quiz: Process Analysis",
-        "due_date": "2025-04-25"
-      },
-      {
-        "title": "Chapter 12 Quiz: Managing Inventories",
-        "due_date": "2025-04-25"
-      },
-      {
-        "title": "Chapter 12 Homework: Managing",
-        "due_date": "2025-04-25"
-      },
-      {
-        "title": "Chapter 13 Quiz: Supply Chain",
-        "due_date": "2025-04-25"
-      },
-      {
-        "title": "Chapter 13 Excel Activity: Total Supply",
-        "due_date": "2025-04-25"
-      },
-      {
-        "title": "Chapter 14 Quiz: Resource Management",
-        "due_date": "2025-04-25"
-      },
-      {
-        "title": "Chapter 14 Excel Activity: Aggregate",
-        "due_date": "2025-04-25"
-      },
-      {
-        "title": "Chapter 15 Quiz: Operations Scheduling",
-        "due_date": "2025-04-25"
-      },
-      {
-        "title": "Chapter 15 Excel Activity: Sequencing",
-        "due_date": "2025-04-25"
-      }
-    ]
-  },
-  "CISM 2201": {
-    "section": "E04",
-    "type": "Fully online",
-    "syllabus_link": "https://westga.campusconcourse.com/view_syllabus?course_id=42425&public_mode=1",
-    "due_dates": [
-      {
-        "title": "Assignment 1: Managing Exam Dates",
-        "due_date": "2025-01-24 11:59 PM"
-      },
-      {
-        "title": "Assignment 2: Calculating a Weighted Average",
-        "due_date": "2025-02-07 11:59 PM"
-      },
-      {
-        "title": "Assignment 3: Understanding Exchange Rates",
-        "due_date": "2025-02-28 11:59 PM"
-      },
-      {
-        "title": "Assignment 4: Pivot Tables",
-        "due_date": "2025-03-14 11:59 PM"
-      },
-      {
-        "title": "Assignment 5: Creating Charts",
-        "due_date": "2025-04-11 11:59 PM"
-      },
-      {
-        "title": "Assignment 6: Using Excel to Calculate Payments",
-        "due_date": "2025-04-18 11:59 PM"
-      },
-      {
-        "title": "Exam 1",
-        "due_date": "2025-02-14 11:59 PM",
-        "availability_range": "Available from 2025-02-12 12:01 AM to 2025-02-14 11:59 PM"
-      },
-      {
-        "title": "Exam 2, Part 1",
-        "due_date": "2025-03-28 11:59 PM",
-        "availability_range": "Available from 2025-03-26 12:01 AM to 2025-03-28 11:59 PM"
-      },
-      {
-        "title": "Exam 2, Part 2 (Excel Portion)",
-        "due_date": "2025-03-28 11:59 PM",
-        "availability_range": "Available from 2025-03-24 to 2025-03-28"
-      },
-      {
-        "title": "Exam 3, Part 1",
-        "due_date": "2025-05-02 11:59 PM",
-        "availability_range": "Available from 2025-04-30 12:01 AM to 2025-05-02 11:59 PM"
-      },
-      {
-        "title": "Exam 3, Part 2 (Excel Portion)",
-        "due_date": "2025-05-02 11:59 PM",
-        "availability_range": "Available from 2025-04-28 to 2025-05-02"
-      }
-    ]
-  },
-  "contact_info": {
-    "email": "preaves@westga.edu",
-    "office": "Richards 225",
-    "office_hours": "Monday and Tuesday, 11:00 AM to 1:30 PM"
-  },
-  "support": {
-    "SITS": {
-      "Carrollton": {
-        "location": "1st Floor - Ingram Library",
-        "phone": "(678) 839-6587, option 2",
-        "email": "sits@westga.edu"
-      },
-      "Newnan": {
-        "phone": "(678) 839-2320",
-        "email": "pcopenha@westga.edu"
-      }
-    }
   }
 }
+
+
